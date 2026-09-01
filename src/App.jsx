@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
+import ServerStatusBanner from './components/ServerStatusBanner';
 
 // Pages - lazy load to optimize bundles containing heavy Three.js / Graph components
 const LandingPage = lazy(() => import('./pages/LandingPage'));
@@ -10,6 +11,7 @@ const CanvasPage = lazy(() => import('./pages/CanvasPage'));
 function App() {
   return (
     <BrowserRouter>
+      <ServerStatusBanner />
       <Suspense fallback={
         <div style={{
           display: 'flex',
